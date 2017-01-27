@@ -1,0 +1,36 @@
+<div ng-controller = "SignUpControl">
+  <form  name="signupForm" novalidate ng-app="myApp" ng-submit="signup()" >
+    <div class="form-group">
+      <label for="email">Username:</label>
+      <input class="form-control" name="username" type="email" placeholder="Username" required ng-model="username" ng-minlength="3" ng-maxlength="50" ng-valid-required ="@" />
+      <span class="help-block"ng-show="signupForm.username.$error.required">Required</span>
+      <span class="help-block" ng-show="signupForm.username.$error.minlength">Username is too short.</span>
+      <span class="help-block" ng-show="signupForm.username.$error.maxlength">Username is too long.</span>
+      <span class="help-block" ng-show="signupForm.username.$error.email">Username requires @.</span>
+    </div>
+    <div class="form-group">
+      <label for="number">Mobile Number:</label>
+      <input class="form-control" type="number" name="Mobno" ng-model = "Mobno" placeholder = "Mobile Number"required ng-pattern = "/(7|8|9)\d{9}/">
+      <span class="help-block"ng-show="signupForm.Mobno.$error.required">Required</span>
+      <span class="help-block"ng-show="signupForm.Mobno.$error.pattern">Please Enter valid number</span>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input class="form-control" name="password" type="password"placeholder="Password"ng-model="password" required ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" />
+      <span class="help-block"ng-show="signupForm.password.$error.required">Required</span>
+      <span class="help-block" ng-show="signupForm.password.$error.pattern">Password should be atleast 8 characters long and should contain one number,one character and one special character</span>
+    </div>
+    <div class = "form-group">
+      <label for="password">Confirm Password:</label>
+      <input  name="confirm_password" class="form-control" type="password"placeholder="Confirm Password" ng-model="confirm_password" required password-match="password"/>
+      <span class="help-block"ng-show="signupForm.confirm_password.$error.unique">Not Matching Password</span>
+      <span class="help-block"ng-show="signupForm.confirm_password.$error.required">Required</span>
+  </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary pull-left"
+        value="Login" title="Signup" ng-disabled="!signupForm.$valid">
+        <span>SignUp</span>
+      </button>
+    </div>
+  </form>
+</div>

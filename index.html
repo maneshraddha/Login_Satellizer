@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SignUp Page</title>
+    <!-- Bootstrap Links -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Bootstrap Links -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- Angular Links -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+  <script src="https://cdn.jsdelivr.net/satellizer/0.15.5/satellizer.min.js"></script>
+
+  </head>
+
+  <body ng-app="myApp">
+    <div ng-controller="NavbarCtrl" class="navbar navbar-inverse navbar-static-top">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#/"><i class="ion-ios7-pulse-strong"></i> AngularJS Satellizer</a>
+      </div>
+      <ul ng-if="!isAuthenticated()" class="nav navbar-nav pull-right">
+        <li><a href="#/login">Login</a></li>
+        <li><a href="#/">Sign up</a></li>
+      </ul>
+      <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-right">
+        <li><a href="#/logout">Logout</a></li>
+      </ul>
+  </div>
+  <div ng-view></div>
+  </body>
+
+  <!--all js files  -->
+  <script src = "app.js"></script>
+  <script src = "controllers/dashboard.js"></script>
+  <script src = "controllers/login.js"></script>
+  <script src = "controllers/logout.js"></script>
+  <script src = "controllers/navbar.js"></script>
+  <script src = "controllers/signup.js"></script>
+  <script src = "directives/passwordMatch.js"></script>
+</html>
